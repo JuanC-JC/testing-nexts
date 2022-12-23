@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useMemo, useState } from 'react'
 import { Home } from "./pages/Home"
-import { Theme } from "./Theme.styled"
 import { Layout } from "./lib/components"
+import { Theme } from "./lib/configuration/Theme.styled"
 
 
 function App() {

@@ -1,11 +1,10 @@
+import { ContactUsForm } from "./components/ContactUsForm";
 import { HomeStyled } from "./styles";
 
 export function Home() {
   return (
     <HomeStyled>
-      <div>
-        Prueba
-      </div>
+      <ContactUsForm/>
     </HomeStyled>
   )
 }
