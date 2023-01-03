@@ -33,6 +33,7 @@ export const ContactUsFormStyled = styled.div`
     /* justify-self: start; */
   }
 
+
   @media (min-width: 720px) {
     h1{
       margin-bottom: ${({theme}: {theme:MainTheme})=> theme.margins.medium};

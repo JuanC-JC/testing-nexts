@@ -50,8 +50,7 @@ function formatCPF(value:string) {
   if(length < 10) return `${number.slice(0,3)}.${number.slice(3,6)}.${number.slice(6)}`
 
   return `${number.slice(0,3)}.${number.slice(3,6)}.${number.slice(6,9)}-${number.slice(9,11)}`
-
-}
+} 
 
 //TODO: do validations
 export const ContactUsForm = () => {
@@ -102,6 +101,7 @@ export const ContactUsForm = () => {
             value={form.phone}
             onChange={changeInputForm}
             formatter={formatPhoneNumber}
+            pattern={/^[(][0-9]{3}[)]\s[0-9]{3}[-][0-9]{4}$/}
           />
           <InputText
             name="address"
