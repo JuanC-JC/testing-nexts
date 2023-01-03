@@ -40,7 +40,6 @@ export const FQAStyled = styled.div.attrs({
   @media (min-width: 1024px) {
 
     justify-content: center;
-    max-width: 1440px;
     margin-left:auto;
     margin-right: auto;
     padding-bottom: 120px;
@@ -53,13 +52,21 @@ export const FQAStyled = styled.div.attrs({
     .questions__block{
       flex: 1 1 50%;
       padding-top: ${({ theme }: { theme: MainTheme }) => theme.paddings.medium};
+      min-width: 450px;
     }
+
 
     .questions__image{
       display: flex;
       flex: 1 1 50%;
       max-height: 670px;
+      max-width: 800px;
       position: relative;
+
+      img{
+        width: 100%;
+        object-fit: cover;
+      }
     }
 
     .questions__vector{
@@ -73,5 +80,12 @@ export const FQAStyled = styled.div.attrs({
     }
 
 
+  }
+
+
+  @media (min-width: 1350px){
+    .questions__block{
+      padding-left: ${({ theme }: { theme: MainTheme }) => theme.margins.medium};
+    }
   }
 `
