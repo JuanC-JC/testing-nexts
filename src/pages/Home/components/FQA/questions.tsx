@@ -1,4 +1,4 @@
-export const askingData = [
+export const questions = [
     {
         title:'Preciso de CNH?', 
         content: 'Sim, você precisa ter CNH A válida para alugar nossas motos.'

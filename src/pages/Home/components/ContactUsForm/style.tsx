@@ -4,6 +4,8 @@ export const ContactUsFormStyled = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column;
+  margin: 0 auto;
+  max-width: 1440px;
 
   padding: ${({theme}: {theme: MainTheme})=> theme.paddings.small};
 
@@ -41,4 +43,5 @@ export const ContactUsFormStyled = styled.div`
       width: 350px;
     }
   }
+
 `

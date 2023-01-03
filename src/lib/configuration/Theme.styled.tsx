@@ -1,5 +1,5 @@
-import { ThemeProvider, MainTheme, createGlobalStyle } from "styled-components";
-import mixins from "./mixins.styled"
+import { ThemeProvider, MainTheme,  } from "styled-components";
+import { GlobalStyle } from "./Global.styled";
 
 const mainTheme: MainTheme = {
   name: "main-theme",
@@ -58,26 +58,6 @@ type Props = {
   children: JSX.Element
 }
 
-
-
-const GlobalStyle = createGlobalStyle`
-	*{
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-	}
-
-	h1{
-    ${mixins.H1_MOBILE}
-	}
-
-
-	@media (min-width: 720px) {
-		h1{
-      ${mixins.H1_DESKTOP}
-		}
-	}
-`
 
 export function Theme({ children }: Props) {
 

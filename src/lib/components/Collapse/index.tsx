@@ -1,19 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
-import styled from 'styled-components'
-
-interface CollapseType {
-    isOpened: boolean;
-    transition: string;
-    children: JSX.Element;
-    
-}
-//height : ${({ height }) => `${height}px`};
-//  transition: ${({ transition }) => `height ${transition}ms`};
-const CollapseStyled = styled.div`
-    height : ${({ height }) => `${height}px`};
-    overflow: hidden;
-    transition: ${({ transition }) => `height ${transition}ms`};
-`
+import { useState, useEffect, useRef } from 'react'
+import { CollapseStyled } from './collapse.style'
+import { CollapseType } from './interfaces'
 
 function Collapse(props : CollapseType) {
 
@@ -30,7 +17,9 @@ function Collapse(props : CollapseType) {
 
 			if(isOpened){
 				setTimeout(() => {
-					collapseBodyRef.current.style.height = 'auto'
+					if(collapseBodyRef.current){
+						collapseBodyRef.current.style.height = 'auto'
+					}
 				}, (transition));
 			}
 			else{
@@ -50,7 +39,6 @@ function Collapse(props : CollapseType) {
 	return (
 		<CollapseStyled
 			ref={collapseBodyRef}
-			isOpened={isOpened}
 			height={height}
 			transition={transition}
 		>
