@@ -44,6 +44,7 @@ export const FQAStyled = styled.div.attrs({
     margin-right: auto;
     padding-bottom: 120px;
     margin-top: 100px;
+    height: 850px;
     
     h1{
       margin-bottom: ${({ theme }: { theme: MainTheme }) => theme.paddings.medium};
