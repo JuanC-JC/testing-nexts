@@ -4,7 +4,8 @@ import { GlobalStyle } from "./Global.styled";
 const mainTheme: MainTheme = {
   name: "main-theme",
   colors: {
-    primary: "#0056FF"
+    primary: "#0056FF",
+    secondary: "#FF8032"
   },
   paddings: {
     small: "24px",
