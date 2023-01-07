@@ -7,6 +7,7 @@ interface IPropsInputSelect extends React.InputHTMLAttributes<HTMLInputElement> 
   label?: string,
   optionsSelect: (string)[]
   onChange?: (args: any) => void,
+  setOption: (args: any) => void,
 }
 
 
@@ -49,18 +50,16 @@ const InputSelectStyled = styled.div.attrs({
 
 
 export function InputSelect({ label, optionsSelect, ...props }: IPropsInputSelect) {
-
+  
   const [option, setOption] = useState("")
 
 
   const handleChange = ({ target }: { target: HTMLInputElement }) => {
 
     if (typeof props.onChange === "function") {
-      const value = target.value
 
-      props.onChange({ name: target.name, value: value })
+      props.onChange({ name: target.name, value: target.value })
       setOption(target.value)
-      console.log('valor select', value);
     }
 
 

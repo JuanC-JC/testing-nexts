@@ -1,17 +1,16 @@
 // import { useState } from "react"
 import styled, { CSSProperties, MainTheme } from "styled-components"
 // import mixinsStyled from "../../../../src/lib/configuration/mixins.styled"
-
+import icon from "../../../assets/images/icon_vammo.png"
 
 interface IPropsColumnPerformance {
-  image?: string,
-  styles?: any,
-  dataRows: (string)[],
+    styles?: any,
+    dataRows: (string | object)[],
 }
 
 
 const ColumnPerformanceStyled = styled.div.attrs({
-  className: "ColumnPerformance"  
+    className: "ColumnPerformance"
 })`
     width: 30%;
     display: flex;
@@ -19,18 +18,31 @@ const ColumnPerformanceStyled = styled.div.attrs({
     gap: 10px;
     justify-content: space-around;
     align-items: center;
+    padding: 10px;
 
     .columnPerformance__row{
         width: 100%;
+        min-height: 70px;
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-        padding: 10px
+        font-size: 16px;
+    }   
+
+    img {
+        width: 24px;
     }
 
-    span{
-        font-size: 16px;
+    .columnPerformance__rowImg{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .title{
+        font-weight: bold;
     }
 
     @media (min-width: 720px) {
@@ -43,21 +55,41 @@ const ColumnPerformanceStyled = styled.div.attrs({
 `
 
 
-export function ColumnPerformance({ image, styles, dataRows}: IPropsColumnPerformance) {
+export function ColumnPerformance({ styles, dataRows }: IPropsColumnPerformance) {
 
+    return (
+        <ColumnPerformanceStyled style={styles}>
+            {
+                dataRows.map((dataRow: any) => {
 
-
-  return (
-    <ColumnPerformanceStyled style={styles}>
-        {
-            dataRows.map((dataRow : any)=>{
-                return (
-                    <div className="columnPerformance__row">
-                        <span>{dataRow}</span>
-                    </div>
-                )
-            })
-        }
-    </ColumnPerformanceStyled>
-  )
+                    return (
+                        <>
+                            <div className="columnPerformance__row title">
+                                <span className={dataRow.img === true ? "columnPerformance__rowImg" : ""}>
+                                    { dataRow.img === true ? <img src={icon} alt=""/> : <></>}
+                                    {dataRow.type}
+                                </span>
+                            </div>
+                            <div className="columnPerformance__row">
+                                <span>
+                                    { dataRow.img === true ? `R$ ${dataRow.cost}`:`${dataRow.cost}`}
+                                </span>
+                            </div>
+                            <div className="columnPerformance__row">
+                                <span>
+                                    {dataRow.img === true ? `R$ ${dataRow.gas}`:`${dataRow.gas}`}   
+                                </span>
+                            </div>
+                            <div className={dataRow.img === true ? "columnPerformance__row" : "columnPerformance__row title"}>
+                                <span>
+                                    {dataRow.img === true ? `R$ ${dataRow.total}`:`${dataRow.total}`}
+                                </span>
+                            </div>
+                        </>
+                            
+                    )
+                })
+            }
+        </ColumnPerformanceStyled>
+    )
 }

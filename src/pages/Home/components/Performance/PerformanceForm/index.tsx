@@ -1,32 +1,21 @@
 import React, { useState } from "react"
 import { Button, InputText, InputSelect } from "../../../../../lib/components"
 import { PerformanceFormStyled } from "./style"
+import { Data } from ".."
+
+interface IPropsFormPerformance {
+    data: Data,
+    changeInputForm?: (args: any) => void,
+    form: any,
+  }
 
 
-interface IPropsEventInputForm extends React.FormEvent<HTMLInputElement> {
-    name?: string
-}
 
+export const PerformanceForm = ({data, changeInputForm, form}: IPropsFormPerformance) => {
 
+    const optionsArray = data.plans.map((plan:any)=> plan.type)
 
-//TODO: do validations
-export const PerformanceForm = () => {
-
-
-    const [form, setForm] = useState({
-        km: "",
-        select: "",
-    })
-
-
-    const changeInputForm = ({ name, value }: any) => {
-        setForm({
-            ...form,
-            [name]: value
-        })
-    }
-
-    const optionsArray = ["Desenrola (NIU NQi GTS)", "Algo", "otro"]
+    
     return (
         <PerformanceFormStyled>
             <h1>Quer saber se vale a pena mudar para uma moto elétrica?</h1>
