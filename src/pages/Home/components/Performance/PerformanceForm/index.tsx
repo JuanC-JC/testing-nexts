@@ -7,11 +7,12 @@ interface IPropsFormPerformance {
     data: Data,
     changeInputForm?: (args: any) => void,
     form: any,
+    calculate: () => void,
   }
 
 
 
-export const PerformanceForm = ({data, changeInputForm, form}: IPropsFormPerformance) => {
+export const PerformanceForm = ({data, changeInputForm, form, calculate}: IPropsFormPerformance) => {
 
     const optionsArray = data.plans.map((plan:any)=> plan.type)
 
@@ -39,7 +40,7 @@ export const PerformanceForm = ({data, changeInputForm, form}: IPropsFormPerform
                     optionsSelect={optionsArray}
                 />
 
-                <Button text={"Calcular"} />
+                <Button text={"Calcular"} calculate={calculate}/>
             </div>
         </PerformanceFormStyled>
     )

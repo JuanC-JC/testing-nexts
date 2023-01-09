@@ -8,9 +8,6 @@ interface IPropsInputText extends React.InputHTMLAttributes<HTMLInputElement> {
   onChange?: (args: any) => void,
   formatter?: (args: any) => string,
   pattern?: RegExp ,
-  // styles?: CSSProperties 
-  //TODO SUPPORT STYLES BY OBJECT AND TRANSPILE TO STRING
-  //TODO SUPPOORT FORMAT INSIDE
 }
 
 const InputTextStyled = styled.div.attrs({

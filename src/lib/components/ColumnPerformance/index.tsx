@@ -1,6 +1,4 @@
-// import { useState } from "react"
-import styled, { CSSProperties, MainTheme } from "styled-components"
-// import mixinsStyled from "../../../../src/lib/configuration/mixins.styled"
+import styled from "styled-components"
 import icon from "../../../assets/images/icon_vammo.png"
 
 interface IPropsColumnPerformance {
@@ -28,6 +26,7 @@ const ColumnPerformanceStyled = styled.div.attrs({
         justify-content: center;
         text-align: center;
         font-size: 16px;
+        // padding: 25px 0;
     }   
 
     img {
@@ -50,6 +49,11 @@ const ColumnPerformanceStyled = styled.div.attrs({
         {
             flex-direction: row;
             width: 100%;
+
+            .columnPerformance__row{
+                min-height: 0px;
+            }   
+
       }
     
 `

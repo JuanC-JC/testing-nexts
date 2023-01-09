@@ -3,11 +3,12 @@ import { GenericButtonStyled } from "./GenericButton.styled"
 interface IPropsButton{
   text: string,
   color?: string,
+  calculate?: () => void,
 }
 
 
-export const Button = ({text}: IPropsButton) => {
+export const Button = ({text, calculate}: IPropsButton) => {
   return (
-    <GenericButtonStyled>{text}</GenericButtonStyled>
+    <GenericButtonStyled onClick={()=>{calculate()}}>{text}</GenericButtonStyled>
   )
 }
